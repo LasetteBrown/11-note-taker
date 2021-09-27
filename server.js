@@ -1,9 +1,11 @@
 const express = require("express");
 const path = require("path");
+const api = require("./routes/index");
 
 //sets up the server
 const app = express();
 const PORT = 3001;
+app.use("/api", api);
 
 app.use(express.static("public"));
 
