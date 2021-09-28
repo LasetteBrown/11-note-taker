@@ -5,7 +5,14 @@ notes.get("/", (req, res) => {
   res.json(db);
 });
 
-// notes.post();
+notes.post("/", (req, res) => {
+  console.info(`${req.method} request received to add a note`);
+
+  const { noteTitle, noteText } = req.body;
+
+  console.log(`Note Title: ${noteTitle}\nNote Text: ${noteText}`);
+  res.send({ status: "SUCCESS" });
+});
 
 // notes.delete();
 

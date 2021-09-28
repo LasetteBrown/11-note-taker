@@ -5,6 +5,10 @@ const api = require("./routes/index");
 //sets up the server
 const app = express();
 const PORT = 3001;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use("/api", api);
 
 app.use(express.static("public"));
@@ -21,7 +25,7 @@ app.get("/notes", (req, res) =>
 
 // Wildcard route to direct users to a 404 page
 app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "public/pages/404.html"))
+  res.sendFile(path.join(__dirname, "public/index.html"))
 );
 
 //listens at local host port
