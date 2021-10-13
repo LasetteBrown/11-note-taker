@@ -8,9 +8,9 @@ notes.get("/", (req, res) => {
 notes.post("/", (req, res) => {
   console.info(`${req.method} request received to add a note`);
 
-  const { noteTitle, noteText } = req.body;
+  const { title, text } = req.body;
 
-  console.log(`Note Title: ${noteTitle}\nNote Text: ${noteText}`);
+  console.log(`Note Title: ${title}, ${text}`, req.body);
   res.send({ status: "SUCCESS" });
 });
 
